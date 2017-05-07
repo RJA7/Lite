@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "dare.png",
+	"frame": {"x":0,"y":0,"w":676,"h":381},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":676,"h":381},
+	"sourceSize": {"w":676,"h":381}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "atlas2.png",
+	"format": "RGBA8888",
+	"size": {"w":676,"h":381},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5b6b9528d357f67fee2a5e47f7f60e79:e4106163cefbebe23d9cfd817f34301d:d2928af382b1462a4e1e9d203dd4c4a5$"
+}
+}

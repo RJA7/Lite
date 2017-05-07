@@ -1,0 +1,17 @@
+{
+  "name": "lite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "async": "latest",
+    "webpack": "^2.5.0",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-glsl-loader": "^1.0.1"
+  }
+}

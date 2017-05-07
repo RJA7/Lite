@@ -1,0 +1,79 @@
+{
+  "frames": [
+    {
+      "filename": "nerve-b5.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 536
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 536
+      },
+      "sourceSize": {
+        "w": 1280,
+        "h": 536
+      }
+    },
+    {
+      "filename": "nerve.png",
+      "frame": {
+        "x": 1280,
+        "y": 0,
+        "w": 523,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 523,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 523,
+        "h": 132
+      }
+    },
+    {
+      "filename": "verik.jpg",
+      "frame": {
+        "x": 0,
+        "y": 536,
+        "w": 1280,
+        "h": 853
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 1280,
+        "h": 853
+      },
+      "sourceSize": {
+        "w": 1280,
+        "h": 853
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "assets.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1803,
+      "h": 1389
+    },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:589013285840922b651b0114dffb4a9f:6ce9a7280b80dfe5f525c12d35e3ddd8:a759b6bbc8381ac9c472b28f589ad0d6$"
+  }
+}
