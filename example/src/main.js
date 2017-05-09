@@ -24,7 +24,7 @@ image.onload = () => {
   world.add(sprite);
 };
 
-image.src = `assets/atlas.png`; 
+image.src = `assets/atlas.png`;
 
 
 const image2 = new Image();

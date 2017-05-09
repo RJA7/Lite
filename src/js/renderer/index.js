@@ -9,6 +9,7 @@ export default class Renderer {
     gl.viewport(0, 0, el.width, el.height);
     gl.clearColor(0, 0, 0, 1);
     gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, gl.createBuffer());
 
     this.programs = new Programs(this);
   }
