@@ -37,7 +37,10 @@ export default class TextureProgram extends Program {
       aModelTransform: gl.getAttribLocation(this.program, `aModelTransform`)  // rotation scale matrix 2x2 world transform
     };
 
-    const SIZE = 4;
+    this.data = new Float32Array(8);
+    this.indices = new Uint8Array(6);
+
+    const SIZE = this.data.BYTES_PER_ELEMENT;
     gl.vertexAttribPointer(attributes.aPos, 4, gl.FLOAT, false, SIZE * 12, 0);
     gl.vertexAttribPointer(attributes.aModelPos, 4, gl.FLOAT, false, SIZE * 12, SIZE * 4);
     gl.vertexAttribPointer(attributes.aModelTransform, 4, gl.FLOAT, false, SIZE * 12, SIZE * 8);
@@ -46,8 +49,6 @@ export default class TextureProgram extends Program {
     gl.enableVertexAttribArray(attributes.aModelTransform);
 
     this.setUniforms();
-    this.data = new Float32Array(8);
-    this.indices = new Uint8Array(6);
   }
 
   setUniforms() {
@@ -76,7 +77,7 @@ export default class TextureProgram extends Program {
 
       let maxIndex = 4 * sprites.length;
       let len = 6 * sprites.length;
-      indices = this.indices = maxIndex > 128 ? new Uint16Array(len) : new Uint8Array(len);
+      indices = this.indices = maxIndex > 127 ? new Uint16Array(len) : new Uint8Array(len);
     }
 
     // attribute vec4 aPos; // local vertex pos should be multiplied by model transform + tex coords
@@ -106,8 +107,8 @@ export default class TextureProgram extends Program {
         data[size++] = transform[3];
       }
 
-      for (let j = 0; j < 6; j++) {
-        indices[iSize++] = indicesMap[j] + i * 4;
+      for (let j = 0, s = i * 4; j < 6; j++) {
+        indices[iSize++] = indicesMap[j] + s;
       }
     }
 
@@ -122,11 +123,11 @@ export default class TextureProgram extends Program {
     const batches = textures.createBatches(objects);
     const gl = this.gl;
 
-    for (let i = 0, l = batches.length, indices, amount; i < l; i++) {
+    for (let i = 0, l = batches.length, indices; i < l; i++) {
       textures.prepareBatch(batches[i]);
       indices = this.setAttributes(batches[i]);
 
-      gl.drawElements(gl.TRIANGLES, indices.length, 
+      gl.drawElements(gl.TRIANGLES, indices.length,
         indices.BYTES_PER_ELEMENT === 1 ? gl.UNSIGNED_BYTE : gl.UNSIGNED_SHORT, 0);
     }
   }

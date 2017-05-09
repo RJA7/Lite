@@ -52,6 +52,8 @@ export default class Textures {
   }
 
   prepareBatch(batch) {
+    this.bounded = [];
+
     for (let i = 0, l = batch.length, texSlot, sprites; i < l; i++) {
       sprites = batch[i];
       texSlot = this.bind(sprites[0].texture);
@@ -67,7 +69,9 @@ export default class Textures {
     
     if (index === -1) {
       index = this.pointer;
-      this.pointer = (this.pointer + 1) % this.maxTextureImageUnits;
+
+      do this.pointer = (this.pointer + 1) % this.maxTextureImageUnits;
+      while (this.bounded[this.pointer]);
 
       const gl = this.gl;
       const glTexture = this.glTextures[index];
@@ -78,7 +82,9 @@ export default class Textures {
 
       this.boundTextures[index] = texture;
     }
-    
+
+    this.bounded[index] = true;
+
     return index;
   }
 }
