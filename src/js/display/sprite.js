@@ -1,4 +1,5 @@
 import Group from './group';
+import TextureProgram from '../programs/textureProgram';
 
 export default class Sprite extends Group {
   constructor(texture, frameName) {
@@ -6,6 +7,8 @@ export default class Sprite extends Group {
 
     this.texture = texture;
     this.frameName = frameName;
+    
+    this.program = TextureProgram;
 
     const frame = this.frame = texture.atlas.frames.filter(f => f.filename === frameName)[0].frame; // todo awesome
     const texW = texture.image.width;

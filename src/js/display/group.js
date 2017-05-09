@@ -4,6 +4,7 @@ export default class Group {
   constructor() {
     this.x = 0;
     this.y = 0;
+    this.worldZ = 0;
     this.width = 0;
     this.height = 0;
     
@@ -12,7 +13,8 @@ export default class Group {
   }
   
   add(child) {
-    this.children.indexOf(child) === -1 ? this.children.push(child) : ``;
+    child.worldZ = this.children.indexOf(child) === -1 ? this.children.push(child) + this.worldZ : child.worldZ;
+    // update child children worldZ;
   }
   
   setPosition(x, y) {
@@ -24,7 +26,7 @@ export default class Group {
   
   refreshTransform() {
     const transform = this.transform;
-    transform.identity(); // todo
+    transform.identity();
     transform.setTranslation(this.x, this.y);
   }
   
